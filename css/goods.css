@@ -16,5 +16,7 @@
 
 .row-left, .row-right{
     width: 50%;
-
+    margin: 0px;
+   padding: 20px;
+   font-size:40px;
 }
