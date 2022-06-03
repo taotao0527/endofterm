@@ -1,0 +1,20 @@
+.container{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.row{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 80%
+    
+}
+
+.row-left, .row-right{
+    width: 50%;
+
+}
