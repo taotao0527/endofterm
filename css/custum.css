@@ -1,0 +1,33 @@
+.container{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.row{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #B6C9BB;
+    color: #8AA892;
+}
+
+.row-left, .row-right{
+    width: 50%;
+    
+}
+
+.row-left{
+    padding: 20px;
+    width: 400px;
+    height: 300px;
+}
+.row-right{
+    padding: 20px;
+    width: 400px;
+    height: 300px;
+    margin: 0%;
+}

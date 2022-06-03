@@ -27,43 +27,43 @@
     
     <main class="card">
         <form>
-        <div class="container"><!--商品圖片&說明-->
-            <div class="row">
-                <div class="row-left">
-                    <img class="goods" src="../img/阿黑.png" >
-                </div>
-                <div class="row-right">
-                    <h3>品名</h3>
-                    <p>
-                        商品敘述
-                    </p>
-                    
-                    <div class="button"> <!--數量按鈕-->
-                        <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
-                        <input type="text" id="num" class="number" value="1">
-                        <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
-                        <p><a href="">加入購物車</a></p>
+            <div class="container"><!--商品圖片&說明-->
+                <div class="row">
+                    <div class="row-left">
+                        <img class="goods" src="../img/阿黑.png" >
                     </div>
+                    <div class="row-right">
+                        <h3>品名</h3>
+                        <p>
+                            商品敘述
+                        </p>
+                        
+                        <div class="button"> <!--數量按鈕-->
+                            <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
+                            <input type="text" id="num" class="number" value="1">
+                            <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
+                            <p><a href="">加入購物車</a></p>
+                        </div>
+                    </div>
+    
                 </div>
-
+                
             </div>
-            
-        </div>
-    <script>
-        function minusNUM(){
-            let value = Number(document.getElementById('num').value);
-            if(value!=1){
-                document.getElementById('num').value=value-1;
+        <script>
+            function minusNUM(){
+                let value = Number(document.getElementById('num').value);
+                if(value!=1){
+                    document.getElementById('num').value=value-1;
+                }
+                
             }
-            
-        }
-        function addNUM(){
-            let value = Number(document.getElementById('num').value);
-            document.getElementById('num').value=value+1;
-            
-        }
-    </script>
-    <article><!--留言板-->
+            function addNUM(){
+                let value = Number(document.getElementById('num').value);
+                document.getElementById('num').value=value+1;
+                
+            }
+        </script>
+        <article><!--留言板-->
             <div class="Row">
                 <div class="Row-left">
                     <img class="custum" src="../img/阿黑.png" >
@@ -104,8 +104,10 @@
                 
             </div>
     </article>
+        </form>
+    
         
-</form>
+        
     </main>
 
 

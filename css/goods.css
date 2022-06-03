@@ -16,7 +16,40 @@
 
 .row-left, .row-right{
     width: 50%;
-    margin: 0px;
-   padding: 20px;
-   font-size:40px;
+    
+}
+
+.Row{
+    background-color: #91506C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.Row-left{
+    flex-basis: 30%;
+    
+}
+.Row-right{
+    flex-basis: 70%;
+}
+.goods{
+    width: 400px;
+    height: 300px;
+
+}
+
+article
+{
+    
+    text-align: left;
+}
+
+.custum{
+    width: 200px;
+    height: 100px;
+    align-items: left;
 }
