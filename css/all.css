@@ -1,0 +1,51 @@
+header{
+    background-color: #E2EFDE;
+   text-align: center;
+   margin: 0px;
+   padding: 20px;
+   font-size:40px;
+   }
+
+body{
+    background-color: #E2EFDE;
+    color: #AAACB0;
+}
+
+footer{
+    background-color: #B096A7;
+    color: #91506C;
+   font-size: 16px;
+   text-align: center;
+   padding: 10px;
+   
+
+   }
+
+nav
+{
+   background-color: #B096A7;
+   text-align: center;
+   font-size: 24px;
+   
+}
+
+nav a{
+    
+    color:#edafb8;
+    
+
+}
+
+
+ a:hover{
+    background-color: #edafb8;
+    color: white;
+}
+
+a{
+    padding:14px 16px;
+    display: inline-block;
+    
+    text-decoration:none;
+
+}
