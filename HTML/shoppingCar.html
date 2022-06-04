@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAZURU</title>
     <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/shopping.css">
 </head>
 <body>
     <header id="top">
@@ -16,7 +17,71 @@
         <a href="#painting">古典畫作</a> 
         <a href="#others">其他</a> 
     </nav>
+    <main>
+        <div class="Row">
+            <div class="Row-left">
+                <img class="goods" src="../img/阿黑.png" >
+            </div>
+            <div class="Row-left">
+                <h3>品名</h3>
+                <div class="button"> <!--數量按鈕-->
+                    <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
+                    <input type="text" id="num" class="number" value="1">
+                    <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
+                    
+                </div>
 
+            </div>
+            
+        </div>
+        <div class="Row">
+            <div class="Row-left">
+                <img class="goods" src="../img/阿黑.png" >
+            </div>
+            <div class="Row-left">
+                <h3>品名</h3>
+                <div class="button"> <!--數量按鈕-->
+                    <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
+                    <input type="text" id="num" class="number" value="1">
+                    <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="Row">
+            <div class="Row-left">
+                <img class="goods" src="../img/阿黑.png" >
+            </div>
+            <div class="Row-left">
+                <h3>品名</h3>
+                <div class="button"> <!--數量按鈕-->
+                    <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
+                    <input type="text" id="num" class="number" value="1">
+                    <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        <input type="button" class="buy" value="結帳" onclick="">
+        <script>
+            function minusNUM(){
+                let value = Number(document.getElementById('num').value);
+                if(value!=1){
+                    document.getElementById('num').value=value-1;
+                }
+                
+            }
+            function addNUM(){
+                let value = Number(document.getElementById('num').value);
+                document.getElementById('num').value=value+1;
+                
+            }
+        </script>
+    </main>
     <footer>  
         <p>連絡電話：02-21345678</p>
         <p>服務時間：10:00～20：00</p>

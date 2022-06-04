@@ -26,6 +26,7 @@ footer{
 
 nav
 {
+
    background-color: #B096A7;
    text-align: center;
    font-size: 24px;
@@ -50,8 +51,8 @@ a{
     padding:14px 16px;
     display: inline-block;
     text-decoration:none;
-    color: #91506C;
-
+    color: #F0EFF4;
+    background-color: #9E829C;
 }
 
 .card
@@ -63,3 +64,7 @@ a{
     flex-direction: column;
   }
 
+.buttom{
+    background-color: #9E829C;
+    
+}
