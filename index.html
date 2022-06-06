@@ -13,6 +13,18 @@
      }
      
     </style>
+    <script >
+        $(function () {
+            $(window).load(function () {
+                $(window).bind('scroll resize', function () {
+                    var $this = $(this); var $this_Top = $this.scrollTop();
+                    if ($this_Top < 100) { $('#top-bar').stop().animate({ top: "-65px" }); } if ($this_Top > 100) {
+                        $('#top-bar').stop().animate({ top: "0px" });
+                    }
+                }).scroll();
+            });
+        });
+    </script>
    
 </head>
 <body>
@@ -21,16 +33,58 @@
     </header>
     <nav>
         <a href="">熱賣排行榜</a>
-        <a href="#landscape">風景拼圖</a>
+        <a href="HTML/goods.jsp">風景拼圖</a>
         <a href="#painting">古典畫作</a> 
         <a href="#stars">星空</a> 
     </nav>
     
     <main class="card">
         <div>
-            <div><!--動態廣告-->
-
+            <!--這裡是廣告-->
+        <div class="ad">
+            <div class="w3-display-container">
+                <a href=""><img class="mySlides adimg" src="img/阿黑.png"></a>
+                <a href=""><img class="mySlides adimg" src="img/阿黑.png"></a>
+                <a href=""><img class="mySlides adimg" src="img/阿黑.png"></a>
+                <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
+                    style="width:100%">
+                    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs1(-1)">&#10094;</div>
+                    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs1(1)">&#10095;</div>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv1(1)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv1(2)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv1(3)"></span>
+                </div>
             </div>
+            <script>
+                var slideIndex = 1;
+                showDivs1(slideIndex);
+
+                function plusDivs1(n) {
+                    showDivs1(slideIndex += n);
+                }
+
+                function currentDiv1(n) {
+                    showDivs1(slideIndex = n);
+                }
+
+                function showDivs1(n) {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    var dots = document.getElementsByClassName("demo");
+                    if (n > x.length) { slideIndex = 1 }
+                    if (n < 1) { slideIndex = x.length }
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" w3-white", "");
+                    }
+                    x[slideIndex - 1].style.display = "inline-block";
+                    dots[slideIndex - 1].className += " w3-white";
+                }
+            </script>
+        </div>
+
         </div>
         <div id="">
             <h4 class="title">熱銷排行榜</h4>
