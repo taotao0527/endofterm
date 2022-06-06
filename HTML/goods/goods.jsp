@@ -14,8 +14,8 @@
      }
      
     </style>
-    <link rel="stylesheet" href="../css/all.css">
-    <link rel="stylesheet" href="../css/goods.css">
+        <link rel="stylesheet" href="/endofterm/endofterm/css/all.css">
+        <link rel="stylesheet" href="/endofterm/endofterm/css/goods.css">
 </head>
 <body>
     <header id="top">

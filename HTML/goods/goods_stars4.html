@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAZURU</title>
+    <style>
+     
+     body{
+        margin: 0px;
+     }
+     
+    </style>
+        <link rel="stylesheet" href="/endofterm/endofterm/css/all.css">
+        <link rel="stylesheet" href="/endofterm/endofterm/css/goods.css">
+</head>
+<body>
+    <header id="top">
+        <p>PAZURU</p>     <!--名字-->
+    </header>
+    <nav>
+        <a href="#landscape">風景拼圖</a> 
+        <a href="#painting">古典畫作</a> 
+        <a href="#others">其他</a> 
+    </nav>
+    
+    <main class="card">
+        <form>
+            <div class="container"><!--商品圖片&說明-->
+                <div class="row">
+                    <div class="row-left">
+                        <img class="goods" src="/endofterm/endofterm/img/stars/stars_4.jpg" >
+                    </div>
+                    <div class="row-right">
+                        <h3>品名</h3>
+                        <p>
+                            商品敘述
+                        </p>
+                        
+                        <div class="button"> <!--數量按鈕-->
+                            <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
+                            <input type="text" id="num" class="number" value="1">
+                            <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
+                            <p><a href="">加入購物車</a></p>
+                        </div>
+                    </div>
+    
+                </div> 
+                
+            </div>
+        <script>
+            function minusNUM(){
+                let value = Number(document.getElementById('num').value);
+                if(value!=1){
+                    document.getElementById('num').value=value-1;
+                }
+                
+            }
+            function addNUM(){
+                let value = Number(document.getElementById('num').value);
+                document.getElementById('num').value=value+1;
+                
+            }
+        </script>
+        <article><!--留言板-->
+            <div class="Row">
+                <div class="Row-left">
+                    <img class="custum" src="../img/阿黑.png" >
+                </div>
+                <div class="Row-left">
+                    <h3>用戶名</h3>
+                    <p>
+                        評價
+                        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                    </p>
+                </div>
+                
+            </div>
+            <div class="Row">
+                <div class="Row-left">
+                    <img class="custum" src="../img/阿黑.png" >
+                </div>
+                <div class="Row-left">
+                    <h3>用戶名</h3>
+                    <p>
+                        評價
+                        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                    </p>
+                </div>
+                
+            </div>
+            <div class="Row">
+                <div class="Row-left">
+                    <img class="custum" src="../img/阿黑.png" >
+                </div>
+                <div class="Row-left">
+                    <h3>用戶名</h3>
+                    <p>
+                        評價
+                        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                    </p>
+                </div>
+                
+            </div>
+    </article>
+        </form>
+    
+        
+        
+    </main>
+
+
+    <footer>  
+        <p>連絡電話：02-21345678</p>
+        <p>服務時間：10:00～20：00</p>
+        <p>客服信箱：abc@gmail.com</p>
+        <blockquote class="blockquote text-right">
+            <p><a href="#top">回頂部</a></p>
+            <p>可刷卡</p> 
+        </blockquote>
+        
+    </footer>
+</body>
+</html>
