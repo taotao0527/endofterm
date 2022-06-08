@@ -27,23 +27,17 @@ footer{
 nav
 {
     width: 1343px;
-    height: 60px;
+    height: 40px;
    background-color: #B096A7;
    text-align: center;
    font-size: 24px;
-   
-}
-
-nav a{
-    padding:14px 16px;
-    display: inline-block;
-    color:#edafb8;
-    text-decoration:none;
+   display: flex;
+   justify-content: center;    
+    align-content: center;      
     align-items: center;
 }
 
-
- a:hover{
+a:hover{
     background-color: #edafb8;
     color: white;
 }
@@ -55,6 +49,85 @@ a{
     color: #F0EFF4;
     background-color: #9E829C;
 }
+
+nav li {
+   
+    justify-content: center;    
+    align-content: center;      
+    align-items: center;
+    padding: 5px;
+    
+}
+
+
+ul ul {
+    list-style-type: circle;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    
+    
+}
+    
+nav ul li {
+    display: inline-block;
+    float: none;
+    white-space: nowrap;
+}
+    
+nav ul li a {
+    display: flex;
+    justify-content: center;    
+    align-content: center;      
+    padding: 0 10px;
+    font-size: 20px;
+    line-height: 30px;
+    float: none;
+    text-decoration:none;
+    color: #F0EFF4;
+    background-color: #9E829C;
+    
+}
+    
+nav ul li ul a {/*第一層子選單樣式*/
+    background-color: #AFAAC5;
+}
+    
+nav ul li ul li ul a {
+    background-color: #DBE9EE;
+    color: #A188A6;
+}
+    
+
+    
+    nav ul ul {
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 20ms;
+    transition-timing-function: ease-in;
+    transition-delay: 200ms;
+    transform: scale(1,0);
+    transform-origin: top center;
+    }
+    
+    
+    
+    nav ul li:hover>ul {/*選單滑鼠移上去的樣式變化*/
+    /*display: inherit;*/
+    transition: all 300ms ease;
+    transform: scale(1,1);
+    }
+    
+    nav ul ul li {/*第一層子選單的樣式*/
+    min-width: 170px;
+    display: list-item;
+    position: relative;
+    }
+    
+    nav ul ul ul {/*第二層子選單的區塊樣式*/
+    position: absolute;
+    top: 0;
+    left: 100%;
+    }
 
 .card
   {
@@ -70,9 +143,6 @@ a{
     
 }
 
-.shoppingCar{
-    position: right;
-}
 
 .goods_h{
     width: 200px;
@@ -83,4 +153,17 @@ a{
     
     height: 200px;
     padding: 10px;
+}
+
+.container{
+    display: flex;
+  justify-content: center;    
+  align-items: center;        
+}
+
+
+
+.name{
+    background-color:rgba(0,0,0,0);
+    color: #7F5A83;
 }

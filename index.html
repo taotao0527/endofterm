@@ -13,65 +13,84 @@
      }
      
     </style>
-    <script >
-        $(function () {
-            $(window).load(function () {
-                $(window).bind('scroll resize', function () {
-                    var $this = $(this); var $this_Top = $this.scrollTop();
-                    if ($this_Top < 100) { $('#top-bar').stop().animate({ top: "-65px" }); } if ($this_Top > 100) {
-                        $('#top-bar').stop().animate({ top: "0px" });
-                    }
-                }).scroll();
-            });
-        });
-    </script>
+    
    
 </head>
 <body>
     <header id="top">
-        <p><a herf="index.html">PAZURU</a></p>     <!--名字-->
-    <a href="html/shoppingCar.html"><img  clas="shoppingCar" src="img/shoppingCar.png"></a>
+        <div class="container">
+<p ><a class="name" herf="index.html">PAZURU</a></p>     <!--名字-->
+        
+        </div>
+        
+        
     </header>
     <nav>
-
-            <a href="index.html">PAZURU</a>   
-        
-        
-            <a href="#landscape">風景拼圖</a>   
-      
-        
-            <a href="#painting">古典畫作</a> 
-        
-       
-            <a href="#stars">星空</a> 
-        
-        
-            <a href="HTML/custum.html">會員專區</a>
-
-
-            <a href="HTML/aboutUs.html">關於我們</a>  
-        
-        
-        
+        <div class="container">
+        <ul>
+            <li><a href="index.html">PAZURU</a></li>
+            <li><a href="#">商品</a>
+            <ul>
+                <li><a href="HTML/list/landscape.html">風景拼圖</a>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">1</a></li>
+                </ul>
+                </li>
+                <li><a href="#">古典畫作</a>
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">1</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">星空</a>
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">1</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </li>
+            <li><a href="#">會員專區</a>
+            <ul>
+            <li><a href="#">註冊</a></li>
+            <li><a href="#">登入</a></li>
+            <li><a href="#">購物車</a></li>
+            </ul>
+            </li>
+            <li><a href="#">關於我們</a></li>
+        </div>
     </nav>
     
-    <main class="card">
-        <div>
+    <main >
+        <div class="card">
             <!--這裡是廣告-->
         <div >
-            <div class="w3-display-container">
+            <div class="container">
                 <div>
                 <div class="arrow" onclick="plusDivs1(-1)">&#10094;</div>
                 <a href=""><img class="mySlides adimg" src="img/阿黑.png"></a>
                 <a href=""><img class="mySlides adimg" src="img/阿黑.png"></a>
                 <a href=""><img class="mySlides adimg" src="img/阿黑.png"></a>
-                <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
+                <div 
                     style="width:100%">
                 <div class="arrow" onclick="plusDivs1(1)">&#10095;</div>  
                 </div>  
-                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv1(1)"></span>
-                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv1(2)"></span>
-                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv1(3)"></span>
+                    <span  onclick="currentDiv1(1)"></span>
+                    <span  onclick="currentDiv1(2)"></span>
+                    <span  onclick="currentDiv1(3)"></span>
                     
                 </div>
             </div>
@@ -100,7 +119,7 @@
                         dots[i].className = dots[i].className.replace(" w3-white", "");
                     }
                     x[slideIndex - 1].style.display = "inline-block";
-                    dots[slideIndex - 1].className += " w3-white";
+                    
                 }
             </script>
         </div>
