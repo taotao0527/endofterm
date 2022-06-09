@@ -165,5 +165,9 @@ nav ul li ul li ul a {
 
 .name{
     background-color:rgba(0,0,0,0);
-    color: #7F5A83;
+    color:#AAACB0 ;
+}
+
+.shoppingCar{
+    height:40px;
 }
