@@ -10,7 +10,7 @@
     justify-content: center;
     display: flex;
     align-items: center;
-    width: 80%
+    width: 80%;
     
 }
 
@@ -44,8 +44,14 @@ article
     text-align: left;
 }
 
-.custum{
-    width: 200px;
-    height: 100px;
-    align-items: left;
+
+.goods_h{
+    width: 400px;
+    
+    padding: 10px;
+}
+.goods_s{
+    
+    height: 400px;
+    padding: 10px;
 }

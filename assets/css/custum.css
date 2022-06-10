@@ -10,9 +10,10 @@
     justify-content: center;
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 80%;
     background-color: #B6C9BB;
     color: #8AA892;
+    margin: 10px auto;
 }
 
 .row-left, .row-right{
@@ -24,10 +25,19 @@
     padding: 20px;
     width: 400px;
     height: 300px;
+    margin: 10px auto;
 }
 .row-right{
     padding: 20px;
     width: 400px;
     height: 300px;
-    margin: 0%;
+    margin: 10px auto;
+}
+
+.custum{
+ margin: auto;
+}
+
+aside p{
+    margin: 0px auto;
 }

@@ -20,7 +20,13 @@ figure{
 
 
 
-  .goods{
-    width: 200px;
-    height: 100px;
+.goods_h{
+  width: 200px;
+  
+  padding: 10px;
+}
+.goods_s{
+  
+  height: 200px;
+  padding: 10px;
 }

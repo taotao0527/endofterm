@@ -5,81 +5,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAZURU</title>
-    <link rel="stylesheet" href="../css/all.css">
-    <link rel="stylesheet" href="../css/car.css">
+    <link rel="stylesheet" href="../assets/css/all.css">
+    <link rel="stylesheet" href="../assets/css/car.css">
 </head>
 <body>
     <header id="top">
-        <p>PAZURU</p>     <!--名字-->
+        <div class="container">
+    <p ><a class="name" href="../index.html">PAZURU</a></p>     <!--名字-->
+        
+        </div>
+        
+        
     </header>
-    <nav><!--頁頂連結-->
-        <a href="#landscape">風景拼圖</a>
-        <a href="#painting">古典畫作</a> 
-        <a href="#others">其他</a> 
+    <nav><!--選單!!!大幅度更改!!!-->
+        <div class="container">
+        <ul>
+            <li><a href="../index.html">PAZURU</a></li>
+            <li><a href="#">商品</a>
+            <ul>
+                <li><a href="../page/landscape.html">風景拼圖</a>
+                <ul>
+                    <li><a href="../page/goods_city.html">義大利</a></li>
+                    <li><a href="../page/goods_fuji.html">日本富士山</a></li>
+                    <li><a href="../page/goods_old.html">老街</a></li>
+                    <li><a href="../page/goods_river.html">色彩繽紛的小鎮</a></li>
+                    <li><a href="../page/goods_street.html">愛丁堡馬戲團巷</a></li>
+                    <li><a href="../page/goods_sea.html">瓦胡島</a></li>
+                </ul>
+                </li>
+                <li><a href="../page/painting.html">古典畫作</a>
+                    <ul>
+                        <li><a href="../page/goods_chinese.html">清明上河圖</a></li>
+                        <li><a href="../page/goods_farm.html">拾穗者</a></li>
+                        <li><a href="../page/goods_pearl.html">戴珍珠耳環的少女</a></li>
+                        <li><a href="../page/goods_skrik.html">吶喊</a></li>
+                        <li><a href="../page/goods_stars.html">星空</a></li>
+                        <li><a href="../page/goods_war.html">自由引導人民</a></li>
+                    </ul>
+                </li>
+                <li><a href="../page/stars.html">星空</a>
+                    <ul>
+                        <li><a href="../page/goods_stars1.html">雪</a></li>
+                        <li><a href="../page/goods_stars2.html">生存</a></li>
+                        <li><a href="../page/goods_stars3.html">嚮往</a></li>
+                        <li><a href="../page/goods_stars4.html">盡頭</a></li>
+                        <li><a href="../page/goods_stars6.html">凌晨</a></li>
+                        <li><a href="../page/goods_stars6.html">銀河</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </li>
+            <li><a href="../page/custum.html">會員專區</a>
+            <ul>
+            <li><a href="../page/register.html">註冊</a></li>
+            <li><a href="../page/login.html">登入</a></li>
+            <li><a href="../page/shoppingCar.html">購物車</a></li>
+            </ul>
+            </li>
+            <li><a href="../page/aboutUs.html">關於我們</a></li>
+            <li><img class="shoppingCar" src="../assets/img/shoppingCar.png"></li>
+        </div>
     </nav>
     <main>
-        <div class="container">
-            <div class="Row">
-                <div class="Row-left">
-                    <img class="goods_s" src="../img/stars/stars_1.jpg" >
-                </div>
-                <div class="Row-right">
-                    <h3 align="center">品名</h3>
+        <article><!--購物車-->
+            <div id="goods">
+                    <div  class="row">
+                    <div  class="row-left">
+                    <img class="goods_s" src="../assets/img/landscape/landscape_city.jpg" >
+                    </div>
+                    <div class="row-right">
+                    <h3>義大利</h3>
                     <p>
-                        <div class="button"> <!--數量按鈕-->
-                            <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
-                            <input type="text" id="num" class="number" value="1">
-                            <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
-                            <input type="button"  value="加入購物車" >
-                            <input type="button"  value="刪除" >
-                        </div>
-                        
+                        商品敘述
                     </p>
                     
+                    <div class="button"> <!--數量按鈕-->
+                        <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
+                        <input type="text" id="num" class="number" value="1">
+                        <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
+                        <p onclick="de()">刪除</p>
+                    </div>
                 </div>
-    
+
+
             </div>
-            <div class="Row">
-                <div class="Row-left">
-                    <img class="goods_s" src="../img/stars/stars_1.jpg" >
+            
+            </div> 
+            <div name="goods1"class="row">
+                <div class="row-left">
+                    <img class="goods_s" src="../assets/img/landscape/landscape_city.jpg" >
                 </div>
-                <div class="Row-right">
-                    <h3 align="center">品名</h3>
+                <div class="row-right">
+                    <h3>義大利</h3>
                     <p>
-                        <div class="button"> <!--數量按鈕-->
-                            <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
-                            <input type="text" id="num" class="number" value="1">
-                            <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
-                            <input type="button"  value="加入購物車" >
-                            <input type="button"  value="刪除" >
-                        </div>
-                        
+                        商品敘述
                     </p>
                     
+                    <div class="button"> <!--數量按鈕-->
+                        <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
+                        <input type="text" id="num" class="number" value="1">
+                        <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
+                        <p onclick="de()">刪除</p>
+                    </div>
                 </div>
-    
-            </div>
-            <div class="Row">
-                <div class="Row-left">
-                    <img class="goods_s" src="../img/stars/stars_1.jpg" >
-                </div>
-                <div class="Row-right">
-                    <h3 align="center">品名</h3>
-                    <p>
-                        <div class="button"> <!--數量按鈕-->
-                            <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
-                            <input type="text" id="num" class="number" value="1">
-                            <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
-                            <input type="button"  value="加入購物車" >
-                            <input type="button"  value="刪除" >
-                        </div>
-                        
-                    </p>
-                    
-                </div>
-    
-            </div>
-        </div>    
+
+            </div> 
+            
+    </article>
+
+    <script>
+        function minusNUM(){
+            let value = Number(document.getElementById('num').value);
+            if(value!=1){
+                document.getElementById('num').value=value-1;
+            }
+            
+        }
+        function addNUM(){
+            let value = Number(document.getElementById('num').value);
+            document.getElementById('num').value=value+1;
+            
+        }
+
+        function de(){
+
+        }
+    </script>
     </main>
     <footer>  
         <p>連絡電話：02-21345678</p>

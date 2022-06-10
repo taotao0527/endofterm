@@ -144,16 +144,7 @@ nav ul li ul li ul a {
 }
 
 
-.goods_h{
-    width: 200px;
-    
-    padding: 10px;
-}
-.goods_s{
-    
-    height: 200px;
-    padding: 10px;
-}
+
 
 .container{
     display: flex;
@@ -171,3 +162,4 @@ nav ul li ul li ul a {
 .shoppingCar{
     height:40px;
 }
+
