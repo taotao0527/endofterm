@@ -1,18 +1,18 @@
-
-
+<%@ page import = "java.sql.*"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAZURU留言頁面</title>
-    <style>
-     
-     body{
-        margin: 0px;
-     }
-     
-    </style>
+    <title>PAZURU</title>
+    <script>
+        function disp_alert()
+        {
+            alert("如果您尚未註冊，要先註冊哦");
+        }
+            </script>
     <link rel="stylesheet" href="../assets/css/all.css">
     <link rel="stylesheet" href="../assets/css/login.css">
 </head>
@@ -25,7 +25,7 @@
         
         
     </header>
-    <nav><!--選單!!!大幅度更改!!!-->
+          <nav><!--選單!!!大幅度更改!!!-->
         <div class="container">
         <ul>
             <li><a href="../index.jsp">PAZURU</a></li>
@@ -74,50 +74,62 @@
             <li><img class="shoppingCar" src="../assets/img/shoppingCar.png"></li>
         </div>
     </nav>
-    
-    <main class="card"></main>
-    <form name="form1" method="get" action="addboard.jsp" >
-    
-        <div class="window">
-            
-            評價商品:		
-			<input name="product" value="p01" type="radio">色彩繽紛的小鎮
-			<input name="product" value="p02" type="radio">愛丁堡馬戲團巷
-			<input name="product" value="p03" type="radio">日本富士山
-			<input name="product" value="p04" type="radio">義大利
-			<input name="product" value="p05" type="radio">瓦胡島
-			<input name="product" value="p06" type="radio">老街
-			<input name="product" value="p07" type="radio">清明上河圖
-			<input name="product" value="p08" type="radio">米勒-拾穗者
-			<input name="product" value="p09" type="radio">約翰內斯-戴珍珠耳環的少女
-			<input name="product" value="p10" type="radio">愛德華-吶喊
-			<input name="product" value="p11" type="radio">梵谷-星空
-			<input name="product" value="p12" type="radio">毆仁-自由引導人
-			<input name="product" value="p13" type="radio">雪
-			<input name="product" value="p14" type="radio">生存
-			<input name="product" value="p15" type="radio">嚮往
-			<input name="product" value="p16" type="radio">盡頭
-			<input name="product" value="p17" type="radio">凌晨
-			<input name="product" value="p18" type="radio">銀河
-		<br><br>
-            <ul>
-                內容：<textarea rows=5 name="content"></textarea><br>
-            </ul>
-            <input type="submit" class ="button" name="Submit" value="送出">
-            <input type="Reset" class ="button" ame="Reset" value="重新填寫">
-        </div>
-    </form>
-</main>
-</body>
-    <footer>  
-    <p>連絡電話：02-21345678</p>
-    <p>服務時間：10:00～20：00</p>
-    <p>客服信箱：abc@gmail.com</p>
-    <blockquote class="blockquote text-right">
-        <p><a href="#top">回頂部</a></p>
-        <p>可刷卡</p> 
-    </blockquote>
-    
-    </footer>
+<%
+Class.forName("com.mysql.jdbc.Driver");
+String url="jdbc:mysql://localhost";
+Connection con=DriverManager.getConnection(url,"root","1234");
+String sql="use user";
+con.createStatement().execute(sql);
+%>
+<%
+ if(session.getAttribute("MAIL")!= null ){
+	 if(request.getParameter("MAIL")!=null){
+		 String new_mail=request.getParameter("MAIL");
+	    String new_password=request.getParameter("PASSWORD");
+		sql="SELECT * FROM `member` ";
+		ResultSet rs=con.createStatement().executeQuery(sql);
+		//String old_password=rs.getString(3);
+	
+		if(new_mail.equals("")||new_mail==null)
+		{
+        out.print("<h2>帳號不能為空!!    請<a href='member.jsp'><u>按此</u></a>重新填寫");
+		
+		}
+		else if(new_password.equals("")||new_password==null){
+			out.print("<h2>密碼不能為空!!    請<a href='member.jsp'><u>按此</u></a>重新填寫");
+		}
+		
+		else{
+        sql = "UPDATE `member` SET `MAIL`='"+request.getParameter("MAIL")+"' WHERE `MAIL`='"+session.getAttribute("MAIL")+"'";
+	    con.createStatement().execute(sql);
+        sql = "UPDATE `member` SET `PASSWORD`='"+request.getParameter("PASSWORD")+"' WHERE `MAIL`='"+session.getAttribute("MAIL")+"'";
+	    con.createStatement().execute(sql);
+		con.close();//結束資料庫連結
+		
+   out.print("<h2>更新成功!!"+"<br>");
+   out.print("您更新的資料如下:"+"<br>"+"帳號:"+new_mail+"<br>"+"密碼:"+new_password+"<br>");
+   out.print(" 請<a href='login.jsp'><u>按此</u></a>重新登入");
+   session.removeAttribute("USERNAME");
+   session.removeAttribute("MAIL");
+		}
+		      
+		}
+		  
+	   
+	  
+ else{
+	        con.close();//結束資料庫連結
+	        out.print("更新失敗!! 請填寫完整!");
+	  }
+}
+
+else{	
+	con.close();//結束資料庫連結
+	 }
+%>
+
+
 </body>
 </html>
+
+

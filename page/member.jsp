@@ -1,21 +1,37 @@
-
-
+<%@ page import = "java.sql.*"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAZURU留言頁面</title>
-    <style>
-     
-     body{
-        margin: 0px;
-     }
-     
-    </style>
+    <title>PAZURU</title>
+    <script>
+        function disp_alert()
+        {
+            alert("如果您尚未註冊，要先註冊哦");
+        }
+            </script>
     <link rel="stylesheet" href="../assets/css/all.css">
     <link rel="stylesheet" href="../assets/css/login.css">
 </head>
+<style>
+.background{
+	background-color:#b096a7b8;
+	padding:20px;
+	text-align:center;
+}
+h2,h3,h4{
+	color:white;
+	font-weight: 200;
+	
+}
+h1{
+	font-weight:300;
+}
+</style>
+
 <body>
     <header id="top">
         <div class="container">
@@ -74,50 +90,63 @@
             <li><img class="shoppingCar" src="../assets/img/shoppingCar.png"></li>
         </div>
     </nav>
-    
-    <main class="card"></main>
-    <form name="form1" method="get" action="addboard.jsp" >
-    
-        <div class="window">
-            
-            評價商品:		
-			<input name="product" value="p01" type="radio">色彩繽紛的小鎮
-			<input name="product" value="p02" type="radio">愛丁堡馬戲團巷
-			<input name="product" value="p03" type="radio">日本富士山
-			<input name="product" value="p04" type="radio">義大利
-			<input name="product" value="p05" type="radio">瓦胡島
-			<input name="product" value="p06" type="radio">老街
-			<input name="product" value="p07" type="radio">清明上河圖
-			<input name="product" value="p08" type="radio">米勒-拾穗者
-			<input name="product" value="p09" type="radio">約翰內斯-戴珍珠耳環的少女
-			<input name="product" value="p10" type="radio">愛德華-吶喊
-			<input name="product" value="p11" type="radio">梵谷-星空
-			<input name="product" value="p12" type="radio">毆仁-自由引導人
-			<input name="product" value="p13" type="radio">雪
-			<input name="product" value="p14" type="radio">生存
-			<input name="product" value="p15" type="radio">嚮往
-			<input name="product" value="p16" type="radio">盡頭
-			<input name="product" value="p17" type="radio">凌晨
-			<input name="product" value="p18" type="radio">銀河
-		<br><br>
-            <ul>
-                內容：<textarea rows=5 name="content"></textarea><br>
-            </ul>
-            <input type="submit" class ="button" name="Submit" value="送出">
-            <input type="Reset" class ="button" ame="Reset" value="重新填寫">
-        </div>
-    </form>
-</main>
-</body>
-    <footer>  
-    <p>連絡電話：02-21345678</p>
-    <p>服務時間：10:00～20：00</p>
-    <p>客服信箱：abc@gmail.com</p>
-    <blockquote class="blockquote text-right">
-        <p><a href="#top">回頂部</a></p>
-        <p>可刷卡</p> 
-    </blockquote>
-    
-    </footer>
+
+<%
+try{
+Class.forName("com.mysql.jdbc.Driver");
+try{
+String url="jdbc:mysql://localhost";
+Connection con=DriverManager.getConnection(url,"root","1234");
+String sql="use user";
+con.createStatement().execute(sql);
+%>
+<%	 
+  if(session.getAttribute("MAIL") != null ){
+	 sql = "SELECT*FROM `member`WHERE `MAIL`='"+session.getAttribute("MAIL")+"'";
+	 ResultSet rs=con.createStatement().executeQuery(sql);
+	 String  USERNAME="",MAIL="",PASSWORD="";
+	 while(rs.next()){
+		 USERNAME=rs.getString("USERNAME");
+		MAIL=rs.getString("MAIL");
+		 PASSWORD=rs.getString("PASSWORD");		 
+	 }
+	 con.close();
+	%>
+<h3><font color="gray"><div align="center">您好! <%=USERNAME%> <br></div>
+<div class="background"><h3><font color="white">請修改會員資料：<br>
+<form action="update.jsp" method="POST">
+<h4><font color="white">您的帳號：<input type="text" class="form-control" name="MAIL" value="<%=MAIL%>" />
+<h4><font color="white">您的密碼：<input type="password" class="form-control" name="PASSWORD" value="<%=PASSWORD%>"/><br><br><br>
+<div align="center"><input type="submit"  value="更新資料" style="color: rgb(255, 255, 255);margin-bottom: 30px; padding: 10px 15px 10px 15px; border: #989bfb 3px solid; background-color: rgb(84, 132, 246);border-radius: 10px;"></form></div>
+
+
+</div>
+
+<%
+}
+else{
+	
+	con.close();//結束資料庫連結
+%>
+<div align="center">
+<h1><font color="red">您尚未登入，請先登入！</font></h1></div>
+<form action="check.jsp" method="POST">
+<h5>帳號：<input type="text" class="form-control"name="MAIL" /><br />
+密碼：<input type="password" class="form-control"name="PASSWORD" /><br />
+<div align="center"><input type="submit" name="b1" value="登入"style="color: rgb(255, 118, 118);margin-bottom: 30px; padding: 10px 15px 10px 15px; border: #ff7272 2px solid; background-color: rgb(255, 233, 233);border-radius: 10px;"/>
+</form>
+<%
+}
+    }
+    catch (SQLException sExec) {
+           out.println("SQL錯誤"+sExec.toString());
+    }
+}
+catch (ClassNotFoundException err) {
+   out.println("class錯誤"+err.toString());
+}
+	
+%>	
+
 </body>
 </html>

@@ -1,31 +1,32 @@
-
-
+<%@ page import = "java.sql.*, java.util.*"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAZURU留言頁面</title>
+    <title>PAZURU</title>
     <style>
      
      body{
         margin: 0px;
      }
+	
+	
      
     </style>
     <link rel="stylesheet" href="../assets/css/all.css">
-    <link rel="stylesheet" href="../assets/css/login.css">
+        <link rel="stylesheet" href="../assets/css/goods.css">
 </head>
+<style>
+
+</style>
 <body>
     <header id="top">
-        <div class="container">
-    <p ><a class="name" href="../index.html">PAZURU</a></p>     <!--名字-->
-        
-        </div>
-        
-        
+        <p>PAZURU</p>     <!--名字-->
     </header>
-    <nav><!--選單!!!大幅度更改!!!-->
+         <nav><!--選單!!!大幅度更改!!!-->
         <div class="container">
         <ul>
             <li><a href="../index.jsp">PAZURU</a></li>
@@ -74,50 +75,82 @@
             <li><img class="shoppingCar" src="../assets/img/shoppingCar.png"></li>
         </div>
     </nav>
-    
-    <main class="card"></main>
-    <form name="form1" method="get" action="addboard.jsp" >
-    
-        <div class="window">
-            
-            評價商品:		
-			<input name="product" value="p01" type="radio">色彩繽紛的小鎮
-			<input name="product" value="p02" type="radio">愛丁堡馬戲團巷
-			<input name="product" value="p03" type="radio">日本富士山
-			<input name="product" value="p04" type="radio">義大利
-			<input name="product" value="p05" type="radio">瓦胡島
-			<input name="product" value="p06" type="radio">老街
-			<input name="product" value="p07" type="radio">清明上河圖
-			<input name="product" value="p08" type="radio">米勒-拾穗者
-			<input name="product" value="p09" type="radio">約翰內斯-戴珍珠耳環的少女
-			<input name="product" value="p10" type="radio">愛德華-吶喊
-			<input name="product" value="p11" type="radio">梵谷-星空
-			<input name="product" value="p12" type="radio">毆仁-自由引導人
-			<input name="product" value="p13" type="radio">雪
-			<input name="product" value="p14" type="radio">生存
-			<input name="product" value="p15" type="radio">嚮往
-			<input name="product" value="p16" type="radio">盡頭
-			<input name="product" value="p17" type="radio">凌晨
-			<input name="product" value="p18" type="radio">銀河
-		<br><br>
-            <ul>
-                內容：<textarea rows=5 name="content"></textarea><br>
-            </ul>
-            <input type="submit" class ="button" name="Submit" value="送出">
-            <input type="Reset" class ="button" ame="Reset" value="重新填寫">
-        </div>
-    </form>
-</main>
-</body>
-    <footer>  
-    <p>連絡電話：02-21345678</p>
-    <p>服務時間：10:00～20：00</p>
-    <p>客服信箱：abc@gmail.com</p>
-    <blockquote class="blockquote text-right">
-        <p><a href="#top">回頂部</a></p>
-        <p>可刷卡</p> 
-    </blockquote>
-    
-    </footer>
-</body>
+
+<%
+if(session.getAttribute("USERNAME")!=null)
+{
+	response.sendRedirect("memberprofile.jsp");
+}
+try {
+//Step 1: 載入資料庫驅動程式 
+    Class.forName("com.mysql.jdbc.Driver");
+    try {
+//Step 2: 建立連線 	
+        String url="jdbc:mysql://localhost/?serverTimezone=UTC";
+        String sql="";
+        Connection con=DriverManager.getConnection(url,"root","1234");
+        if(con.isClosed())
+           out.println("連線建立失敗");
+        else {
+			// out.print("連線建立成功");
+		}
+//Step 3: 選擇資料庫   
+           sql="USE `user`";
+           con.createStatement().execute(sql);
+		   request.setCharacterEncoding("UTF-8"); 
+		   String new_name=request.getParameter("USERNAME");
+		  
+           String new_mail=request.getParameter("MAIL");
+		 
+		   String new_password=request.getParameter("PASSWORD");
+		 
+        if(new_name.equals("")||new_name==null){
+          out.print("<h2>用戶名稱不能為空!!    請<a href='signin.jsp'><u>按此</u></a>重新填寫");
+
+		   
+            }
+       else if(new_mail.equals("")||new_mail==null){
+        out.print("<h2>帳號不能為空!!    請<a href='signin.jsp'><u>按此</u></a>重新填寫");
+       }
+ 
+      else if(new_password.equals("")||new_password==null){
+      out.print("<h2>密碼不能為空!!    請<a href='signin.jsp'><u>按此</u></a>重新填寫");
+ 
+      }
+ 
+ else
+ {   
+		try{
+ 
+//Step 4: 執行 SQL 指令, 若要操作記錄集, 需使用executeQuery, 才能傳回ResultSet	
+           sql="INSERT`member`(`USERNAME`,`MAIL`,`PASSWORD`,`LEVEL`)";
+           sql+="VALUES ('" + new_name + "', ";
+           sql+="'"+new_mail+"\', ";
+		   sql+="'"+new_password+"\', ";
+           sql+="'青銅會員')";      
+           con.createStatement().execute(sql);
+	       out.print("<h2>註冊成功!!    歡迎你成為PAZURU會員");
+		   response.setHeader("refresh","3;URL=login.jsp") ;
+		   
+  }
+  
+  catch(SQLException sExec) {
+		 out.print("<h2>抱歉!   此帳號已存在了");
+	     }
+    }
+
+//Step 6: 關閉連線
+          con.close();
+      
+    }
+    catch (SQLException sExec) {
+           out.println("SQL錯誤"+sExec.toString());
+		   
+    }
+}
+catch (ClassNotFoundException err) {
+      out.println("class錯誤"+err.toString());
+}
+%>
+  
 </html>

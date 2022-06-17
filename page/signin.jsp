@@ -1,31 +1,32 @@
-
-
+<%@ page import = "java.sql.*, java.util.*"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAZURU留言頁面</title>
+    <title>PAZURU</title>
     <style>
      
      body{
         margin: 0px;
      }
+	
+	
      
     </style>
     <link rel="stylesheet" href="../assets/css/all.css">
-    <link rel="stylesheet" href="../assets/css/login.css">
+        <link rel="stylesheet" href="../assets/css/goods.css">
 </head>
+<style>
+
+</style>
 <body>
     <header id="top">
-        <div class="container">
-    <p ><a class="name" href="../index.html">PAZURU</a></p>     <!--名字-->
-        
-        </div>
-        
-        
+        <p>PAZURU</p>     <!--名字-->
     </header>
-    <nav><!--選單!!!大幅度更改!!!-->
+         <nav><!--選單!!!大幅度更改!!!-->
         <div class="container">
         <ul>
             <li><a href="../index.jsp">PAZURU</a></li>
@@ -74,50 +75,37 @@
             <li><img class="shoppingCar" src="../assets/img/shoppingCar.png"></li>
         </div>
     </nav>
-    
-    <main class="card"></main>
-    <form name="form1" method="get" action="addboard.jsp" >
-    
-        <div class="window">
+    <section><form name="form1" method="post" action="register.jsp" >
+        <div class="card">
+            <div class="window">
             
-            評價商品:		
-			<input name="product" value="p01" type="radio">色彩繽紛的小鎮
-			<input name="product" value="p02" type="radio">愛丁堡馬戲團巷
-			<input name="product" value="p03" type="radio">日本富士山
-			<input name="product" value="p04" type="radio">義大利
-			<input name="product" value="p05" type="radio">瓦胡島
-			<input name="product" value="p06" type="radio">老街
-			<input name="product" value="p07" type="radio">清明上河圖
-			<input name="product" value="p08" type="radio">米勒-拾穗者
-			<input name="product" value="p09" type="radio">約翰內斯-戴珍珠耳環的少女
-			<input name="product" value="p10" type="radio">愛德華-吶喊
-			<input name="product" value="p11" type="radio">梵谷-星空
-			<input name="product" value="p12" type="radio">毆仁-自由引導人
-			<input name="product" value="p13" type="radio">雪
-			<input name="product" value="p14" type="radio">生存
-			<input name="product" value="p15" type="radio">嚮往
-			<input name="product" value="p16" type="radio">盡頭
-			<input name="product" value="p17" type="radio">凌晨
-			<input name="product" value="p18" type="radio">銀河
-		<br><br>
-            <ul>
-                內容：<textarea rows=5 name="content"></textarea><br>
-            </ul>
-            <input type="submit" class ="button" name="Submit" value="送出">
-            <input type="Reset" class ="button" ame="Reset" value="重新填寫">
+             <p>會員註冊</p>
+           
+                  <div class="form-group">
+                    <div align="center"> 姓名 <input  class="form-control"  type="username" name="USERNAME" id="usename"/></div>
+                  </div>
+                  <div class="form-group">
+                  <div align="center"> 設定帳號(Email)<input  class="form-control"  type="email" name="MAIL" id="mail" /></div>
+                  </div>
+                  <div class="form-group">
+                  <div align="center">  設定密碼 <input  class="form-control" type="password" name="PASSWORD"id="password" /></div>
+                  </div>
+                 <br> <input type="submit" value="註冊" style="color: rgb(0, 0, 0);margin-bottom: 30px; padding: 10px 15px 10px 15px; border: #8eff72 2px solid; background-color: rgb(239, 255, 188);border-radius: 10px;"/>
+            </div>
         </div>
-    </form>
-</main>
-</body>
-    <footer>  
-    <p>連絡電話：02-21345678</p>
-    <p>服務時間：10:00～20：00</p>
-    <p>客服信箱：abc@gmail.com</p>
-    <blockquote class="blockquote text-right">
-        <p><a href="#top">回頂部</a></p>
-        <p>可刷卡</p> 
-    </blockquote>
+               </form>
+        </div>
+      </div>
+      </form></section>
+
+    <div id="scrollUp"><i class="far fa-angle-double-up"></i></div><!-- Optional JavaScript -->
+    <!-- jQuery first,then Popper.js,then Bootstrap JS -->
+    <script src="../assets/js/jquery-3.4.1.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/metisMenu.min.js"></script>
+    <script src="../assets/js/script.js"></script>
     
-    </footer>
-</body>
+    </body>
+
 </html>
+

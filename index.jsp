@@ -1,3 +1,5 @@
+<%@ page contentType="text/html" %>
+<%@page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +19,17 @@
    
 </head>
 <body>
+<%
+  int counter;
+  String strNo = (String)application.getAttribute("counter1");//讀application變數
+  counter = Integer.parseInt(strNo); //轉成整數
+ if (session.isNew()==true)
+ {
+	 counter++;//計數器加1
+ }                                     
+  strNo = String.valueOf(counter);    //轉成字串
+  application.setAttribute("counter1", strNo);//寫application變數
+%>
     <header id="top">
         <div class="container">
 <p ><a class="name" herf="index.html">PAZURU</a></p>     <!--名字-->
@@ -28,8 +41,8 @@
     <nav><!--選單!!!大幅度更改!!!-->
         <div class="container">
         <ul>
-            <li><a href="index.html">PAZURU</a></li>
-            <li><a href="#">商品</a>
+            <li><a href="index.jsp">PAZURU</a></li>
+            <li><a href="page/landscape.jsp">商品</a>
             <ul>
                 <li><a href="page/landscape.jsp">風景拼圖</a>
                 <ul>
@@ -41,7 +54,7 @@
                     <li><a href="page/landscape3.jsp">瓦胡島</a></li>
                 </ul>
                 </li>
-                <li><a href="page/painting.html">古典畫作</a>
+                <li><a href="page/painting.jsp">古典畫作</a>
                     <ul>
                         <li><a href="page/painting1.jsp">清明上河圖</a></li>
                         <li><a href="page/painting2.jsp">拾穗者</a></li>
@@ -82,7 +95,7 @@
                 <div class="ad" style="width:100%">
 
                     <div class="arrow" onclick="plusDivs1(-1)">&#10094;</div>
-                    <a href=""><img class="mySlides adimg" src="assets/img/阿黑.png"></a>
+                    <a href=""><img class="mySlides adimg" src="assets/img/product/painting_stars.jpg"></a>
                     <a href=""><img class="mySlides adimg" src="assets/img/阿黑.png"></a>
                     <a href=""><img class="mySlides adimg" src="assets/img/阿黑.png"></a>
                     <div class="arrow" onclick="plusDivs1(1)">&#10095;</div>  
@@ -128,22 +141,22 @@
             <h4 class="title">熱銷排行榜</h4>
         <figure> 
             <div class="card">
-                <img class="goods_s" src="assets/img/landscape/landscape_sea.jpg" >
+                <img class="goods_s" src="assets/img/product/landscape_sea.jpg" >
                 <div>
-                    <a href="page/goods_sea.html">瓦胡島</a>
+                    <a href="page/landscape3.jsp">瓦胡島</a>
                 </div>
                 
             </div> 
             <div class="card">
-                <img class="goods_s" src="assets/img/stars/stars_3.jpg" >
+                <img class="goods_s" src="assets/img/product/stars_3.jpg" >
                 <div>
-                    <a href="page/goods_stars3.html">嚮往</a>
+                    <a href="page/star3.jsp">嚮往</a>
                 </div>
             </div> 
             <div class="card">
-                <img class="goods_s" src="assets/img/painting/painting_skrik.jpg" >
+                <img class="goods_s" src="assets/img/product/painting_skrik.jpg" >
                 <div>
-                    <a href="page/goods_skrik.html">吶喊</a>
+                    <a href="page/painting4.jsp">吶喊</a>
                 </div>
             </div> 
 
@@ -155,98 +168,95 @@
             <h4 class="title">風景地圖</h4>
         <figure> 
             <div class="card">
-                <img class="goods_s" src="assets/img/landscape/landscape_city.jpg" >
+                <img class="goods_s" src="assets/img/product/landscape_city.jpg" >
                 <div>
-                    <a href="page/goods_city.html">義大利</a>
+                    <a href="page/landscape4.jsp">義大利</a>
                 </div>
             </div> 
             <div class="card">
-                <img class="goods_s" src="assets/img/landscape/landscape_fuji.jpg" >
+                <img class="goods_s" src="assets/img/product/landscape_fuji.jpg" >
                 <div>
-                    <a href="page/goods_fuji.html">日本富士山</a>
+                    <a href="page/landscape3.jsp">日本富士山</a>
                 </div>
             </div> 
             <div class="card">
-                <img class="goods_s" src="assets/img/landscape/landscape_river.jpg" >
+                <img class="goods_s" src="assets/img/product/landscape_river.jpg" >
                 <div>
-                    <a href="page/goods_river.html">色彩繽紛的小鎮</a>
+                    <a href="page/landscape1.jsp">色彩繽紛的小鎮</a>
                 </div>
             </div> 
 
         </figure>
-        <p class="more"><a href="page/landscape.html" >more...</a></p>  
+        <p class="more"><a href="page/landscape.jsp" >more...</a></p>  
         </aside>
         <section id="painting">     <!--古典畫作-->
             <h4 class="title">古典畫作</h4>
             <figure> 
                 <div class="card">
-                    <img class="goods_s" src="assets/img/painting/painting_pearl.jpg" >
+                    <img class="goods_s" src="assets/img/product/painting_pearl.jpg" >
                     <div>
-                        <a href="page/goods_pearl.html">戴珍珠耳環的少女</a>
+                        <a href="page/painting3.jsp">戴珍珠耳環的少女</a>
                     </div>
                 </div> 
                 <div class="card">
-                    <img class="goods_s" src="assets/img/painting/painting_skrik.jpg" >
+                    <img class="goods_s" src="assets/img/product/painting_skrik.jpg" >
                     <div>
-                        <a href="page/goods_skrik.html">吶喊</a>
+                        <a href="page/painting4.jsp">吶喊</a>
                     </div>
                 </div> 
                 <div class="card">
-                    <img class="goods_h" src="assets/img/painting/painting_stars.jpg" >
+                    <img class="goods_h" src="assets/img/product/painting_stars.jpg" >
                     <div>
-                        <a href="page/goods_stars.html">星空</a>
+                        <a href="page/painting5.jsp">星空</a>
                     </div>
                 </div> 
 
             </figure>
-            <p class="more"><a href="page/painting.html" >more...</a></p>  
+            <p class="more"><a href="page/painting.jsp" >more...</a></p>  
         </section>
         <article id="stars"><!--星空-->
             <h4 class="title">星空</h4>
             <figure> 
                 <div class="card">
-                    <img class="goods_s" src="assets/img/stars/stars_1.jpg" >
+                    <img class="goods_s" src="assets/img/product/stars_1.jpg" >
                     
                     <div>
-                        <a href="page/goods_stars1.html">雪</a>
+                        <a href="page/star1.jsp">雪</a>
                     </div>
                 </div> 
                 <div class="card">
-                    <img class="goods_s" src="assets/img/stars/stars_2.jpg" >
+                    <img class="goods_s" src="assets/img/product/stars_2.jpg" >
                     <div>
-                        <a href="page/goods_stars2.html">生存</a>
+                        <a href="page/star2.jsp">生存</a>
                     </div>
                 </div> 
                 <div class="card">
-                    <img class="goods_s" src="assets/img/stars/stars_3.jpg" >
+                    <img class="goods_s" src="assets/img/product/stars_3.jpg" >
                     <div>
-                        <a href="page/goods_stars3.html">嚮往</a>
+                        <a href="page/star3.jsp">嚮往</a>
                     </div>
                 </div> 
 
             </figure>
-            <p class="more"><a href="page/stars.html" >more...</a></p>  
+            <p class="more"><a href="page/stars.jsp" >more...</a></p>  
         </article>
     </main>
 
 
-    <footer>  
-        <p>連絡電話：02-21345678</p>
-        <p>服務時間：10:00～20：00</p>
-        <p>客服信箱：abc@gmail.com</p>
-        <blockquote class="blockquote text-right">
-            <div >
-                <div>
-                    <p><a href="#top" class="buttom">回頂部</a></p>
-                </div>
-                
-            </div>
-            
-            <p>可刷卡</p>
-            <a href="page/Manageboard.jsp" style="background-color:#B096A7;">進入系統後台</a> 
-        </blockquote>
-        
-    </footer>
     
-</body>
-</html>
+      <footer>  
+          <p>連絡電話：02-21345678</p>
+          <p>服務時間：10:00～20：00</p>
+          <p>客服信箱：abc@gmail.com</p>
+          <blockquote class="blockquote text-right">
+              <p><a href="#top">回頂部</a></p>
+              <p>可刷卡</p> 
+<a href="page/Managelogin.jsp" style="background-color:#B096A7;">進入系統後台</a>
+			  
+              <p>網頁瀏覽人數:<%=counter%>人</p>
+          </blockquote>
+          
+      </footer>
+      
+  </body>
+  </html>
