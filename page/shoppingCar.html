@@ -63,54 +63,24 @@
             </ul>
             </li>
             <li><a href="../page/aboutUs.html">關於我們</a></li>
-            <li><img class="shoppingCar" src="../assets/img/shoppingCar.png"></li>
+            
         </div>
     </nav>
     <main>
         <article><!--購物車-->
-            <div id="goods">
-                    <div  class="row">
-                    <div  class="row-left">
-                    <img class="goods_s" src="../assets/img/landscape/landscape_city.jpg" >
-                    </div>
-                    <div class="row-right">
-                    <h3>義大利</h3>
-                    <p>
-                        商品敘述
-                    </p>
-                    
-                    <div class="button"> <!--數量按鈕-->
-                        <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
-                        <input type="text" id="num" class="number" value="1">
-                        <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
-                        <p onclick="de()">刪除</p>
-                    </div>
+            <div class='Row'>
+                <div class='row-left'>
+                    <a href='"+rs2.getString("page")+"'><img class='goods_s' src='../assets/img/product/"+rs2.getString(7)+"'></a>
                 </div>
-
-
-            </div>
-            
-            </div> 
-            <div name="goods1"class="row">
-                <div class="row-left">
-                    <img class="goods_s" src="../assets/img/landscape/landscape_city.jpg" >
+                <div class='row-left'>
+                    <h3>"+rs2.getString(2)+"</h3>
+                    <h4>數量:"+rs.getString(3)+"</h4>
                 </div>
-                <div class="row-right">
-                    <h3>義大利</h3>
-                    <p>
-                        商品敘述
-                    </p>
-                    
-                    <div class="button"> <!--數量按鈕-->
-                        <input type="button" class="mun-button" value="-" id="btnOne" onclick="minusNUM()">
-                        <input type="text" id="num" class="number" value="1">
-                        <input type="button" class="mun-button" value="+" id="btnTwo" onclick="addNUM()">
-                        <p onclick="de()">刪除</p>
-                    </div>
-                </div>
-
-            </div> 
-            
+            int n=Integer.valueOf(rs.getString(3));
+            int p=Integer.valueOf(rs2.getString(5));
+            sum+=(n*p);
+            out.print("<h4>NT"+(n*p)+"</h4>");
+            out.println("<br><form method='post' action='delcart.jsp'><input type='hidden' name='del' value='"+rs2.getString(1)+"'><input type='hidden' name='name' value='"+rs.getString(1)+"'><input type='submit' value='刪除'></form></div></div>"); 
     </article>
 
     <script>
