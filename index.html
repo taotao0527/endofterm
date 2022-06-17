@@ -33,48 +33,47 @@
             <ul>
                 <li><a href="page/landscape.html">風景拼圖</a>
                 <ul>
-                    <li><a href="page/goods_city.html">義大利</a></li>
-                    <li><a href="page/goods_fuji.html">日本富士山</a></li>
-                    <li><a href="page/goods_old.html">老街</a></li>
-                    <li><a href="page/goods_river.html">色彩繽紛的小鎮</a></li>
-                    <li><a href="page/goods_street.html">愛丁堡馬戲團巷</a></li>
-                    <li><a href="page/goods_sea.html">瓦胡島</a></li>
+                    <li><a href="page/landscape4.html">義大利</a></li>
+                    <li><a href="page/landscape3.html">日本富士山</a></li>
+                    <li><a href="page/landscape6.html">老街</a></li>
+                    <li><a href="page/landscape1.html">色彩繽紛的小鎮</a></li>
+                    <li><a href="page/landscape2.html">愛丁堡馬戲團巷</a></li>
+                    <li><a href="page/landscape3.html">瓦胡島</a></li>
                 </ul>
                 </li>
                 <li><a href="page/painting.html">古典畫作</a>
                     <ul>
-                        <li><a href="page/goods_chinese.html">清明上河圖</a></li>
-                        <li><a href="page/goods_farm.html">拾穗者</a></li>
-                        <li><a href="page/goods_pearl.html">戴珍珠耳環的少女</a></li>
-                        <li><a href="page/goods_skrik.html">吶喊</a></li>
-                        <li><a href="page/goods_stars.html">星空</a></li>
-                        <li><a href="page/goods_war.html">自由引導人民</a></li>
+                        <li><a href="page/painting1.html">清明上河圖</a></li>
+                        <li><a href="page/painting2.html">拾穗者</a></li>
+                        <li><a href="page/paniting3.html">戴珍珠耳環的少女</a></li>
+                        <li><a href="page/painting4.html">吶喊</a></li>
+                        <li><a href="page/painting5.html">星空</a></li>
+                        <li><a href="page/painting6.html">自由引導人民</a></li>
                     </ul>
                 </li>
                 <li><a href="page/stars.html">星空</a>
                     <ul>
-                        <li><a href="page/goods_stars1.html">雪</a></li>
-                        <li><a href="page/goods_stars2.html">生存</a></li>
-                        <li><a href="page/goods_stars3.html">嚮往</a></li>
-                        <li><a href="page/goods_stars4.html">盡頭</a></li>
-                        <li><a href="page/goods_stars6.html">凌晨</a></li>
-                        <li><a href="page/goods_stars6.html">銀河</a></li>
+                        <li><a href="page/star1.html">雪</a></li>
+                        <li><a href="page/star2.html">生存</a></li>
+                        <li><a href="page/star3.html">嚮往</a></li>
+                        <li><a href="page/star4.html">盡頭</a></li>
+                        <li><a href="page/star5.html">凌晨</a></li>
+                        <li><a href="page/star6.html">銀河</a></li>
                     </ul>
                 </li>
             </ul>
             </li>
-            <li><a href="page/custum.html">會員專區</a>
+            <li><a href="page/memberprofile.html">會員專區</a>
             <ul>
-            <li><a href="page/register.html">註冊</a></li>
+            <li><a href="page/signin.html">註冊</a></li>
             <li><a href="page/login.html">登入</a></li>
             <li><a href="page/shoppingCar.html">購物車</a></li>
             </ul>
             </li>
             <li><a href="page/aboutUs.html">關於我們</a></li>
-            <li><img class="shoppingCar" src="assets/img/shoppingCar.png"></li>
+            
         </div>
     </nav>
-    
     <main >
         <div class="card">
             <!--這裡是廣告-->
@@ -83,9 +82,12 @@
                 <div class="ad" style="width:100%">
 
                     <div class="arrow" onclick="plusDivs1(-1)">&#10094;</div>
-                    <a href=""><img class="mySlides adimg" src="assets/img/阿黑.png"></a>
-                    <a href=""><img class="mySlides adimg" src="assets/img/阿黑.png"></a>
-                    <a href=""><img class="mySlides adimg" src="assets/img/阿黑.png"></a>
+                    <div id="imgGallary" class="container">
+                        <img class="mySlides adimg" src="assets/img/landscape/landscape_sea.jpg" alt="" width="100%" height="300" />
+                        <img class="mySlides adimg" src="assets/img/painting/painting_chinese.jpg" alt="" width="100%" height="300" />
+                        <img class="mySlides adimg" src="assets/img/painting/painting_farm.jpg" alt="" width="100%" height="300" />
+                        <img class="mySlides adimg" src="assets/img/painting/painting_stars.jpg" alt="" width="100%" height="300" />
+                    </div>
                     <div class="arrow" onclick="plusDivs1(1)">&#10095;</div>  
                   
                     <span  onclick="currentDiv1(1)"></span>
@@ -121,6 +123,24 @@
                     x[slideIndex - 1].style.display = "inline-block";
                     
                 }
+
+                (function(){
+                    var imgLen = document.getElementById('imgGallary');
+                    var images = imgLen.getElementsByTagName('img');
+                    var counter = 1;
+
+                    if(counter <= images.length){
+                        setInterval(function(){
+                            images[0].src = images[counter].src;
+                            console.log(images[counter].src);
+                            counter++;
+
+                            if(counter === images.length){
+                            counter = 1;
+                            }
+                        },2800);
+                    }
+                })();
             </script>
         </div>
 
@@ -243,7 +263,8 @@
                 
             </div>
             
-            <p>可刷卡</p> 
+            <p>可刷卡</p>
+            <a href="page/Manageboard.html" style="background-color:#B096A7;">進入系統後台</a> 
         </blockquote>
         
     </footer>
