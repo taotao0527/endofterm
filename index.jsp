@@ -103,9 +103,7 @@
                         </div>
                         <div class="arrow" onclick="plusDivs1(1)">❯</div>  
                       
-                        <span onclick="currentDiv1(1)"></span>
-                        <span onclick="currentDiv1(2)"></span>
-                        <span onclick="currentDiv1(3)"></span>
+                        
                         
                     </div>
                 </div>
@@ -115,11 +113,10 @@
     
                     function plusDivs1(n) {
                         showDivs1(slideIndex += n);
+                        change();
                     }
     
-                    function currentDiv1(n) {
-                        showDivs1(slideIndex = n);
-                    }
+
     
                     function showDivs1(n) {
                         var i;
@@ -137,7 +134,7 @@
                         
                     }
     
-                    (function(){
+                    (function change (){
                         var imgLen = document.getElementById('imgGallary');
                         var images = imgLen.getElementsByTagName('img');
                         var counter = 1;

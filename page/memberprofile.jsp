@@ -142,9 +142,10 @@ con.createStatement().execute(sql);
 <h4> <font color="white"><div align="center"> <%=messege%><br></div></h4>
 <h4> <font color="white"><div align="center">您的帳號：  <%=MAIL%> <br></div></h4>
 <h4> <font color="white"><div align="center">您的密碼：  <%=PASSWORD%> <br></div></h4>
+    <h4> <font color="white"><div align="center">您的信箱：<%=%><br></div></h4>
 <h4> <font color="white"><div align="center">您目前有<%=total%>筆訂單，總價<%=sum%>元<br></div></h4>
 <div   align="right"><a  href="logout.jsp"><font color="white"><u>登出</u></a></div></div>
-
+    <div align="center"><a  href="order.jsp"><font color="white"><u>歷史訂單</u></a></div></div>
    <h5 style="text-align:right;"> <a href="member.jsp">>>>>>想要修改資料?</a> </h5>
 
 
