@@ -15,8 +15,8 @@ body{
 }
 
 footer{
-    background-color: #AEB0C2;
-    color: white;
+    background-color: #B096A7;
+    color: #91506C;
    font-size: 16px;
    text-align: center;
    padding: 10px;
@@ -28,7 +28,7 @@ nav
 {
     width: 1343px;
     height: 40px;
-   background-color: #AEB0C2;
+   background-color: #B096A7;
    text-align: center;
    font-size: 24px;
    display: flex;

@@ -13,7 +13,12 @@
         margin: 0px;
      }
 	
-	
+	.stars{
+		width:30px;
+	}
+	.point{
+		margin-top:10px;
+	}
      
     </style>
     <link rel="stylesheet" href="../assets/css/all.css">
@@ -125,22 +130,28 @@ catch (ClassNotFoundException err) {
 }
 
 %>	   
-      
-       <form method="post" action="addcart.jsp">
-	   
-	   
-	   </form>
+      <div id="stars" class="point">
+                            <img class="stars" src="../assets/img/point/star.png" alt="">
+                            <img class="stars" src="../assets/img/point/star.png" alt="">
+                            <img class="stars" src="../assets/img/point/star.png" alt="">
+                            <img class="stars" src="../assets/img/point/star.png" alt="">
+                            <img class="stars" src="../assets/img/point/star.png" alt="">
+	  </div> 
 						
                         
                        
                             
-                        </div>
+                        
                     </div>
     
                 </div> 
-                
+               
             </div>
+			</div>
+			
+			
         <script>
+            //+-數量
             function minusNUM(){
                 let value = Number(document.getElementById('num').value);
                 if(value!=1){
@@ -153,7 +164,56 @@ catch (ClassNotFoundException err) {
                 document.getElementById('num').value=value+1;
                 
             }
+            //星星
+            var Stars = document.getElementById("stars");
+            var starNum = -1;
+            var starArray = Array.from(Stars.children); 
+    
+            //滑鼠移入
+            Stars.onmouseover = function (e) {
+                if (e.target.tagName === "IMG") { 
+                    e.target.src = "../assets/img/point/star1.png";
+                    var prev = e.target.previousElementSibling;
+                    while (prev) {
+                        prev.src = "../assets/img/point/star1.png";
+                        prev = prev.previousElementSibling;
+                    }
+                    var next = e.target.nextElementSibling;
+                    while (next) { 
+                        next.src = "../assets/img/point/star.png";
+                        next = next.nextElementSibling;
+                    }
+    
+                    var index = starArray.indexOf(e.target);
+                }
+            }
+    
+            //滑鼠點擊
+            Stars.onclick = function (e) {
+                if (e.target.tagName === "IMG") {
+                    starNum = starArray.indexOf(e.target);
+                }
+            }
+    
+            //滑鼠移出
+            Stars.onmouseout = function (e) {
+                if (starNum !== -1) { 
+                    for (var i = 0; i < Stars.children.length; i++) {
+                        if (i <= starNum) {
+                            Stars.children[i].src = "../assets/img/point/star1.png";
+                            
+                        } else {
+                            Stars.children[i].src = "../assets/img/point/star.png";
+                        }
+                    }
+                } else {
+                    for (var i = 0; i < Stars.children.length; i++) {
+                        Stars.children[i].src = "../assets/img/point/star.png";
+                    }
+                }
+            }
         </script>
+		
     <article>
 <%
 try {

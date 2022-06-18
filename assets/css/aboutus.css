@@ -1,12 +1,11 @@
 .Row{
-  background-color: #AEB0C2;
+  background-color: #91506C;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 5px;
   padding: 20px;
   margin: 20px;
-  color: white;
 }
 
 .Row-left{

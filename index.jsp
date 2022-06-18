@@ -58,7 +58,7 @@
                     <ul>
                         <li><a href="page/painting1.jsp">清明上河圖</a></li>
                         <li><a href="page/painting2.jsp">拾穗者</a></li>
-                        <li><a href="page/paniting3.jsp">戴珍珠耳環的少女</a></li>
+                        <li><a href="page/painting3.jsp">戴珍珠耳環的少女</a></li>
                         <li><a href="page/painting4.jsp">吶喊</a></li>
                         <li><a href="page/painting5.jsp">星空</a></li>
                         <li><a href="page/painting6.jsp">自由引導人民</a></li>
@@ -90,51 +90,72 @@
     <main >
         <div class="card">
             <!--這裡是廣告-->
-        <div >
-            <div class="container">
-                <div class="ad" style="width:100%">
-
-                    <div class="arrow" onclick="plusDivs1(-1)">&#10094;</div>
-                    <a href=""><img class="mySlides adimg" src="assets/img/product/painting_stars.jpg"></a>
-                    <a href=""><img class="mySlides adimg" src="assets/img/阿黑.png"></a>
-                    <a href=""><img class="mySlides adimg" src="assets/img/阿黑.png"></a>
-                    <div class="arrow" onclick="plusDivs1(1)">&#10095;</div>  
-                  
-                    <span  onclick="currentDiv1(1)"></span>
-                    <span  onclick="currentDiv1(2)"></span>
-                    <span  onclick="currentDiv1(3)"></span>
-                    
+            <div >
+                <div class="container">
+                    <div class="ad" style="width:100%">
+    
+                        <div class="arrow" onclick="plusDivs1(-1)">❮</div>
+                        <div id="imgGallary" class="container">
+                            <img class="mySlides adimg" src="assets/img/ad1.png" alt="" width="100%" height="300" style="display: none;">
+                            <img class="mySlides adimg" src="assets/img/ad2.png" alt="" width="100%" height="300" style="display: none;">
+                            <img class="mySlides adimg" src="assets/img/ad3.png" alt="" width="100%" height="300" style="display: none;">
+                            <img class="mySlides adimg" src="assets/img/ad4.png" alt="" width="100%" height="300" style="display: none;">
+                        </div>
+                        <div class="arrow" onclick="plusDivs1(1)">❯</div>  
+                      
+                        <span onclick="currentDiv1(1)"></span>
+                        <span onclick="currentDiv1(2)"></span>
+                        <span onclick="currentDiv1(3)"></span>
+                        
+                    </div>
                 </div>
+                <script>
+                    var slideIndex = 1;
+                    showDivs1(slideIndex);
+    
+                    function plusDivs1(n) {
+                        showDivs1(slideIndex += n);
+                    }
+    
+                    function currentDiv1(n) {
+                        showDivs1(slideIndex = n);
+                    }
+    
+                    function showDivs1(n) {
+                        var i;
+                        var x = document.getElementsByClassName("mySlides");
+                        var dots = document.getElementsByClassName("demo");
+                        if (n > x.length) { slideIndex = 1 }
+                        if (n < 1) { slideIndex = x.length }
+                        for (i = 0; i < x.length; i++) {
+                            x[i].style.display = "none";
+                        }
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" w3-white", "");
+                        }
+                        x[slideIndex - 1].style.display = "inline-block";
+                        
+                    }
+    
+                    (function(){
+                        var imgLen = document.getElementById('imgGallary');
+                        var images = imgLen.getElementsByTagName('img');
+                        var counter = 1;
+    
+                        if(counter <= images.length){
+                            setInterval(function(){
+                                images[0].src = images[counter].src;
+                                console.log(images[counter].src);
+                                counter++;
+    
+                                if(counter === images.length){
+                                counter = 1;
+                                }
+                            },2800);
+                        }
+                    })();
+                </script>
             </div>
-            <script>
-                var slideIndex = 1;
-                showDivs1(slideIndex);
-
-                function plusDivs1(n) {
-                    showDivs1(slideIndex += n);
-                }
-
-                function currentDiv1(n) {
-                    showDivs1(slideIndex = n);
-                }
-
-                function showDivs1(n) {
-                    var i;
-                    var x = document.getElementsByClassName("mySlides");
-                    var dots = document.getElementsByClassName("demo");
-                    if (n > x.length) { slideIndex = 1 }
-                    if (n < 1) { slideIndex = x.length }
-                    for (i = 0; i < x.length; i++) {
-                        x[i].style.display = "none";
-                    }
-                    for (i = 0; i < dots.length; i++) {
-                        dots[i].className = dots[i].className.replace(" w3-white", "");
-                    }
-                    x[slideIndex - 1].style.display = "inline-block";
-                    
-                }
-            </script>
-        </div>
 
         </div>
         <div id="hot">

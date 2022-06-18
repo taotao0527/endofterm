@@ -20,14 +20,13 @@
 }
 
 .Row{
-    background-color: #BBBDC9;
+    background-color: #91506C;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 5px;
     padding: 20px;
     margin: 20px;
-    color: white;
 }
 
 .Row-left{
