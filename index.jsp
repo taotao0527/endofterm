@@ -92,67 +92,50 @@
             <!--這裡是廣告-->
             <div >
                 <div class="container">
-                    <div class="ad" style="width:100%">
+                    <div>
     
-                        <div class="arrow" onclick="plusDivs1(-1)">❮</div>
-                        <div id="imgGallary" class="container">
-                            <img class="mySlides adimg" src="assets/img/ad1.png" alt="" width="100%" height="300" style="display: none;">
-                            <img class="mySlides adimg" src="assets/img/ad2.png" alt="" width="100%" height="300" style="display: none;">
-                            <img class="mySlides adimg" src="assets/img/ad3.png" alt="" width="100%" height="300" style="display: none;">
-                            <img class="mySlides adimg" src="assets/img/ad4.png" alt="" width="100%" height="300" style="display: none;">
+                        
+                        <div  class="container">
+                                <img class="mySlides adimg" src="assets/img/ad1.png" >
+                                <img class="mySlides adimg" src="assets/img/ad2.png" >
+                                <img class="mySlides adimg" src="assets/img/ad3.png" >
+                                <img class="mySlides adimg" src="assets/img/ad4.png" >
                         </div>
-                        <div class="arrow" onclick="plusDivs1(1)">❯</div>  
-                      
+                          
+                        
+                        <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide(1)"></span> 
+                            <span class="dot" onclick="currentSlide(2)"></span> 
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                            <span class="dot" onclick="currentSlide(4)"></span>
+                          </div>
                         
                         
                     </div>
                 </div>
                 <script>
-                    var slideIndex = 1;
-                    showDivs1(slideIndex);
+                    var slideIndex = 0;
+                    showSlides();
     
-                    function plusDivs1(n) {
-                        showDivs1(slideIndex += n);
-                        change();
+                    function showSlides() {
+                    var i;
+                    var slides = document.getElementsByClassName("mySlides");
+                    var dots = document.getElementsByClassName("dot");
+                    for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
                     }
-    
-
-    
-                    function showDivs1(n) {
-                        var i;
-                        var x = document.getElementsByClassName("mySlides");
-                        var dots = document.getElementsByClassName("demo");
-                        if (n > x.length) { slideIndex = 1 }
-                        if (n < 1) { slideIndex = x.length }
-                        for (i = 0; i < x.length; i++) {
-                            x[i].style.display = "none";
-                        }
-                        for (i = 0; i < dots.length; i++) {
-                            dots[i].className = dots[i].className.replace(" w3-white", "");
-                        }
-                        x[slideIndex - 1].style.display = "inline-block";
-                        
+                    slideIndex++;
+                    if (slideIndex > slides.length) {slideIndex = 1}    
+                    for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
                     }
-    
-                    (function change (){
-                        var imgLen = document.getElementById('imgGallary');
-                        var images = imgLen.getElementsByTagName('img');
-                        var counter = 1;
-    
-                        if(counter <= images.length){
-                            setInterval(function(){
-                                images[0].src = images[counter].src;
-                                console.log(images[counter].src);
-                                counter++;
-    
-                                if(counter === images.length){
-                                counter = 1;
-                                }
-                            },2800);
-                        }
-                    })();
+                    slides[slideIndex-1].style.display = "block";  
+                    dots[slideIndex-1].className += " active";
+                    setTimeout(showSlides, 3000); 
+                    }
                 </script>
             </div>
+
 
         </div>
         <div id="hot">

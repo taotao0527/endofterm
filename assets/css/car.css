@@ -12,7 +12,7 @@
   align-items: center;
   width: 70%;
   margin: 10px auto;
-  background-color: #AAC6DA;
+  background-color: #BBBDC9;
 }
   
   .row-left{
@@ -24,17 +24,17 @@
     padding: 20px;
       width: 400px;
       height: 300px;
-      
+      align-items: center;
   }
 
   .goods_h{
-    width: 200px;
+    width:300px;
     
     padding: 10px;
 }
 .goods_s{
     
-    height: 200px;
+    height: 300px;
     padding: 10px;
 }
   

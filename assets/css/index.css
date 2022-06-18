@@ -12,7 +12,7 @@ figure{
 
 
 .title{
-    background-color: #9684A1;
+    background-color: #AEB0C2;
     color: white ;
     margin: 0px;
    padding: 20px;
@@ -25,15 +25,12 @@ figure{
     font-size: 16px;
 }
 
-.ad{
+.adimg{
     display: flex;
     align-items: center;
     justify-content: center;
-
-}
-
-.arrow{
-    padding: 40px;
+    height:450px
+    
 }
 
 .goods_h{
